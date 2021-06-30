@@ -212,7 +212,7 @@ If you wanted to write the piece of code with the pipe operator (`%>%`),  you wo
 
 `argument1 %>% function(argument2)`
 
-where the pipe operator automatically places argument1 as the first argument of the function.
+where the pipe operator automatically places `argument1` as the first argument of the function.
 
 ]
 
