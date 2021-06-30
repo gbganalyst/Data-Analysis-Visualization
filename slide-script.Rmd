@@ -91,8 +91,7 @@ class: middle
 
 Goal:
 
-> The goal of this R workshop is to help you learn the most important skills in R for data science.
-
+> The goal of this R workshop is to  help you learn the most important skills in analyzing and visualizing data in R programming for data science.
 ]
 
 ---
@@ -111,9 +110,150 @@ name: toc
 
 ]
 
+
+---
+class: middle, center, inverse
+name: cal
+
+# Introduction to pipe operator
+
+
+
+```{r, echo=FALSE, out.height= "45%", out.width="45%"}
+include_graphics("images/pipe.png")
+```
+
+---
+
+## The Pipe Operator `<%>`
+
+.w-100.lh-copy[
+What if you wanted to apply multiple functions to one data frame? This is where chaining is elegant and facilitates debugging.
+
+The pipe operator is an extremely useful tool from the `magrittr` package that allows you to express a sequence of multiple operations. They can greatly simplify your code and make your operations more intuitive. 
+
+You want to call one function, then pass the result to another function, and another, in a way that is easily readable.
+]
+
+--
+
+.w-100.lh-copy[
+For example, when you have an input `data` and want to call functions `foo` and `bar` in sequence, you can write it as follows:
+]
+
+--
+
+.pull-left[
+```{r, eval=FALSE, tidy=FALSE}
+data %>% foo() %>% bar()
+```
+]
+
+--
+
+.pull-right[
+
+`instead of`:
+
+```{r, eval=FALSE, tidy=FALSE}
+bar(foo(data))
+```
+]
+
+--
+
+The easiest way to get `%>%` is to load `tidyverse` or `dplyr package`.
+
+---
+
+### Example 1
+
+--
+
+```{r, echo=TRUE}
+iris %>% head()
+```
+
+--
+
+`instead of`: 
+
+--
+
+```{r, echo=TRUE}
+head(iris)
+```
+
+---
+
+## The Pipe Operator `<%>`
+
+.w-100.lh-copy[
+Piping is the clearest syntax to implement, as it focuses on actions, not objects. The pipe operator `(%>%)` automatically passes the output from the first line into the next line as the input.
+]
+
+--
+
+.w-100.lh-copy[
+Imagine, that you have a function that takes two arguments: 
+
+`function(argument1, argument2)`
+]
+
+--
+
+.w-100.lh-copy[
+If you wanted to write the piece of code with the pipe operator (`%>%`),  you would write it as:
+]
+
+--
+
+.w-100.lh-copy[
+
+`argument1 %>% function(argument2)`
+
+where the pipe operator automatically places argument1 as the first argument of the function.
+
+]
+
+---
+
+### Example 2
+
+--
+
+```{r, echo=TRUE, tidy=FALSE}
+x <-  4.234
+
+x %>% sqrt() %>% log() %>% round(2)
+```
+--
+
+or
+
+```{r, echo=TRUE}
+x <-  4.234
+
+x %>% sqrt() %>% log() %>% round(2)
+```
+
+--
+
+`instead of`: 
+
+--
+
+```{r, echo=TRUE, tidy=FALSE}
+x <- 4.234
+
+round(log(sqrt(x)), 2)
+```
+
+
 ---
 class: middle, center, inverse
 name: dplyr
+layout: false
 
 # dplyr verbs
 
@@ -147,6 +287,10 @@ class: middle
 # dplyr verbs
 
 .w-100.lh-copy[
+The five key dplyr functions also knows as dplyr verbs that allow you to solve the vast majority of your data manipulation challenges are:
+]
+
+.w-100.lh-copy[
 
 - `select()`: picks variables based on their names or column positions.
 
@@ -154,13 +298,34 @@ class: middle
 
 - `filter()`: picks cases based on their values
 
-- `group_by()`: group by one or more variables
+- `arrange()`:  changes the ordering of the rows by values of a column
+(low to high). This is the same thing that the **sort** feature in MS-Excel does.
 
 - `summarise()`: reduces multiple values down to a single summary.
 
+]
+
+---
+class: middle
+
+## Other dplyr functions
+
+.w-100.lh-copy[
+
+- `rename()`: rename the columns of a dataframe	
+
+- `distinct()`: Select only unique/distinct rows from a data frame
+
 - `count()`: lets you quickly count the unique values of one or more variables
 
-- `arrange()`:  changes the ordering of the rows.
+- `group_by()`: group by one or more variables
+
+When `summarise()` is paired with `group_by()`, it allows you to get a summary row for each group in the data frame.
+
+---
+
+`group_by()` and `summarise()` provide one of the tools that you’ll use most commonly when working with dplyr: grouped summaries.
+
 ]
 
 ---
@@ -202,21 +367,23 @@ include_graphics("images/data-vis.png")
 
 ---
 
+## Data Visualization
+
+.w-100.lh-copy[
+Data visualization refers to the graphical representation of data by visual elements such as charts, Infographics, and maps to understand the data. 
+]
+
 .pull-left[
   
-```{r, echo=FALSE, out.height= "36%", out.width="82%"}
+```{r, echo=FALSE, out.height= "30%", out.width="82%"}
   include_graphics("images/viz.png")
 ```
 ]
 
-<br>
-
-<br>
-
 --
 
 .w-100.lh-copy[
-Data visualization refers to the graphical representation of data by visual elements such as charts, Infographics, and maps to understand the data. There is a story behind every data, and data visualization brings them to life.
+There is a story behind every data and data visualization brings them to life.
 ]
 
 --
@@ -225,12 +392,14 @@ Data visualization refers to the graphical representation of data by visual elem
 The importance of Data Visualization is as follows:
 ]
 
+<br>
+
 --
 
 .w-100.lh-copy[
 - It is a powerful way to explore data with presentable results
   
-- It displays the summary of our data at a glance
+- It displays the summary of your data at a glance
   
 - Charts make it easier to identify patterns and trends
   
@@ -241,6 +410,36 @@ The importance of Data Visualization is as follows:
 .w-100.lh-copy[
 It can be hard for the audience to grasp the true meaning of the findings without data visualization.
 ]
+
+---
+class: middle
+
+### Before you visualize your data
+
+.w-100.lh-copy[
+Presentation of data and information is not just about picking any data visualization design. Matching data to the right visualization begins by answering the following five (5) key questions:
+]
+
+--
+
+
+- What relationship am I trying to understand between my data sets?
+
+--
+
+- Do I want to understand the distribution of data and look for outliers?
+
+--
+
+- Am I looking to compare multiple values or looking to analyze a single value over time?
+
+--
+
+- Am I interested in analyzing trends in my data sets?
+
+--
+
+- Is this visualization an important part of my overarching data story?
 
 ---
 class: middle
@@ -429,27 +628,23 @@ Aesthetic mappings describe how variables in the data are mapped to visual prope
  
 `color`: color points and lines
  
+ ]
+]
+
+--
+
+.pull-right[
+.w-100.lh-copy[
+
 `size`: size of the points
  
 `shape`: shape of the points
- 
-`weight`: frequency weights
-]
-]
-
-.pull-right[
-`ymin`: used in ribbons charts with ymax to display an interval between two lines
- 
-`ymax`: used in ribbons charts with ymin to display an interval between two lines
- 
-`facet`: create small multiples
- 
-`facet row`: create small multiples by rows
- 
-`facet col`: create small multiples by columns
-]
 
 `group`: identifies series of points with a grouping variable
+
+`facet`: create small multiples
+]
+]
 
 ---
 ### Lab session
@@ -465,7 +660,7 @@ class: center, middle
 
 .left[
 .w-100.lh-copy[
-This tutorial introduced you to pipe operator in `R` programming. 
+This tutorial introduced you to pipe operator (`%>%`) in `R` programming. 
 
 In this tutorial, you have learnt that:
 
