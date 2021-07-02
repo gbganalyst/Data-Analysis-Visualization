@@ -287,7 +287,7 @@ class: middle
 # dplyr verbs
 
 .w-100.lh-copy[
-The five key dplyr functions also knows as dplyr verbs that allow you to solve the vast majority of your data manipulation challenges are:
+The five key dplyr functions, also known as dplyr verbs, that allow you to solve the vast majority of your data manipulation challenges are:
 ]
 
 .w-100.lh-copy[
@@ -666,7 +666,7 @@ In this tutorial, you have learnt that:
 
 1. there are many dplyr verbs and they include `select()`, `mutate()`, `filter()`, `group_by()`, and `summarise()`.
 
-2. you can use any visualization technique to plot data with ggplot2 package.
+2. you can use any visualization technique to plot data with the ggplot2 package.
 
 3. you can choose from different layers such as `geom_point()`, `geom_col()`, `geom_histogram()`, `geom_boxplot()`, etc. 
 
