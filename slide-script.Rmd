@@ -49,7 +49,7 @@ use_extra_styles()
 
 ```
 
-background-image: url(images/gbg.jpg), url(images/R_logo.png)
+background-image: url(images/gbg.png), url(images/R_logo.png)
 background-position: 0% 100%, 100% 0%
 background-size: 40%, 10%
 
@@ -59,7 +59,7 @@ class: title-page, center, middle
 
 ```{r, echo=FALSE}
 use_logo(
-  image_url = "images/gbg.jpg",
+  image_url = "images/gbg.png",
   link_url = "https://bit.ly/gbganalyst",
   position = xaringanExtra::css_position(top = "1em", right = "1em"),
   exclude_class = c("title-page", "inverse", "hide_logo")
