@@ -91,7 +91,7 @@ class: middle
 
 Goal:
 
-> The goal of this R workshop is to  help you learn the most important skills in analyzing and visualizing data in R programming for data science.
+> The goal of this R training is to  help you learn the most important skills in analyzing and visualizing data in R programming for data science.
 ]
 
 ---
@@ -128,7 +128,6 @@ include_graphics("images/pipe.png")
 ## The Pipe Operator `<%>`
 
 .w-100.lh-copy[
-What if you wanted to apply multiple functions to one data frame? This is where chaining is elegant and facilitates debugging.
 
 The pipe operator is an extremely useful tool from the `magrittr` package that allows you to express a sequence of multiple operations. They can greatly simplify your code and make your operations more intuitive. 
 
@@ -348,6 +347,16 @@ include_graphics("images/dplyr3.png")
 ```
 
 ---
+class: middle
+
+## Using pipe with dplyr verbs
+
+```{r, echo=FALSE}
+include_graphics("images/pipe2.png")
+```
+
+
+---
 ### Lab session
 
 ```{r, echo=FALSE}
@@ -445,7 +454,7 @@ Presentation of data and information is not just about picking any data visualiz
 class: middle
 layout: true
 
-## Data Visualization Techniques
+### Data Visualization Techniques
 
 ---
 
@@ -522,14 +531,24 @@ include_graphics("images/P3.png")
 ]
 
 ---
-.pull-left[
+
+
 
 **Name**: Pie/Doughnut chart	
+
+.w-100.lh-copy[
+If your goal is to show how each part contributes to the whole amount being reported, a pie or doughnut chart will probably be a better choice.
+]
+
+--
 
 **Visual dimensions**:
 
 - color
 
+--
+
+.pull-left[
 
 ```{r, echo=FALSE, out.height= "100%", out.width="100%"}
 include_graphics("images/P41.png")
@@ -537,12 +556,15 @@ include_graphics("images/P41.png")
 
 ]
 
+--
+
 .pull-right[
 
 ```{r, echo=FALSE, out.height= "100%", out.width="100%"}
 include_graphics("images/P4.png")
 ```
 ]
+
 ---
 .pull-left[
 
@@ -599,12 +621,15 @@ class: middle
 .w-100.lh-copy[
 R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. `ggplot2` is based on the grammar of graphics, the idea that you can build every graph from the same components: 
 
-- a data set
+- `Data`: The raw material of your visualization
 
-- a coordinate system also known as aesthetic mapping
+- `Aesthetics`: The mappings of your data to the visualization. For example, mapping the variable age to the y-axis and gender to the x-axis of a chart
 
-- geoms: visual marks that represent data points.
+- `Layers`: A visualization requires at least one layer to render the data and aesthetics to the screen. These layers typically take the form of a ggplot2 geom function- for example, geom_point() for a scatter plot. 
+]
 
+--
+.w-100.lh-copy[
 With ggplot2, you can do more faster by learning one system and applying it in many places.
 ]
 
