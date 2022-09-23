@@ -1,0 +1,12 @@
+Other learning materials
+
+https://oliviergimenez.github.io/reproducible-science-workshop/slides/3_dplyr.html#63
+
+
+Question
+
+https://oliviergimenez.github.io/reproducible-science-workshop/practicals/1_datamanipulation.html#6
+
+Answer
+
+https://oliviergimenez.github.io/reproducible-science-workshop/practicals/1_datamanipulation_solution.html#15
